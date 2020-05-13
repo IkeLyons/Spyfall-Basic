@@ -1,0 +1,10 @@
+.room-list ul{
+	list-style: none;
+	padding: 0;
+}
+
+.room-list ul li{
+	padding: .5rem;
+	border: 1px solid rgba(0, 0, 0, 1);
+	border-radius: .25rem;
+}
