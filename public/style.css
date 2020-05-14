@@ -1,10 +1,32 @@
+.card{
+	box-shadow: .25rem .25rem .125rem grey;
+}
+
+/* entire room list container */
 .room-list ul{
 	list-style: none;
 	padding: 0;
 }
 
+/* Every individual room's container */
 .room-list ul li{
+	margin-top: .35rem;
 	padding: .5rem;
 	border: 1px solid rgba(0, 0, 0, 1);
 	border-radius: .25rem;
+}
+
+.room-list ul li:hover{
+	border-color: #1da1f2;
+	color: #1da1f2;
+	/* box-shadow: .25rem .25rem .125rem grey; */
+}
+
+/* individual text elements of rooms */
+.room-list ul li p{
+	display: inline;
+}
+
+.room-list ul li p:nth-child(2){
+	float: right;
 }
