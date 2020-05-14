@@ -12,21 +12,20 @@ app.get('/', (req, res) => {
 });
 
 io.on('connect', (socket) => {
+	//upon client connection log the connection and send them the current rooms
 	console.log('Socket: ' + socket.id + ' has connected');
-	socket.emit('all-rooms', rooms);
+	socket.emit('update-rooms', rooms);
 
 	socket.on('disconnect', () => {
 		console.log('Socket: ' + socket.id + ' has disconnected');
 	});
 
 	socket.on('create-room', (roomName) => {
-		console.log(roomName + ' has been created');
 		if(roomName in rooms){
 			console.log("roomName already exists");
 		}else{
 			rooms[roomName] = 1;
-			console.log(rooms);
-			io.emit('all-rooms', rooms);
+			io.emit('update-rooms', rooms);
 		}
 	})
 });
