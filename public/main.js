@@ -1,3 +1,23 @@
+$(document).ready(function(){
+    $("#username-modal").modal('show');
+});
+
+/* This is called when the room creation submit button is submitted */
+function validation(){
+	var name = document.getElementById("room-name-input").value;
+	socket.emit("create-room", name);
+	return name;
+}
+
+/* This funciton is called when the username input button is clicked */
+function buttonClick(){
+	var username = document.getElementById("un-text-input").value;
+	socket.emit("new-user", username);
+	$("#username-modal").modal('hide');
+	return username;
+}
+
+
 var socket = io();
 
 /*	When the server emits update-rooms the client needs to take the roomdata and
@@ -21,9 +41,16 @@ socket.on("update-rooms", (roomData) => {
 	document.getElementById("rooms").innerHTML = htmltext;
 })
 
-/* This is called when the room creation submit button is submitted */
-function validation(){
-	var name = document.getElementById("room-name-input").value;
-	socket.emit("create-room", name);
-	return name;
-}
+socket.on('update-users', (users) => {
+	var ul = document.createElement('ul');
+	for(var name of Object.keys(users)){
+		var li = document.createElement('li');
+		var p = document.createElement('p');
+		var text = document.createTextNode(users[name]);
+		p.appendChild(text);
+		li.appendChild(p);
+		ul.appendChild(li);
+	}
+	var htmltext = "<div class='user-list'>" + ul.outerHTML + "</div>";
+	document.getElementById('user-list').innerHTML = htmltext;
+})
