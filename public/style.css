@@ -19,7 +19,7 @@
 .room-list ul li:hover{
 	border-color: #1da1f2;
 	color: #1da1f2;
-	/* box-shadow: .25rem .25rem .125rem grey; */
+	box-shadow: .25rem .25rem .125rem grey;
 }
 
 /* individual text elements of rooms */
@@ -43,8 +43,4 @@
 
 .user-list ul li p{
 	display: inline;
-}
-
-.user-list ul li:first-child{
-	margin-top: 0;
 }
