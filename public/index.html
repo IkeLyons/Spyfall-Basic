@@ -29,7 +29,7 @@
 		</div>
 	</div>
 </div>
-<div class="fluid-container p-2">
+<div class="container p-2">
 	<div class="row m-0">
 		<div class="col-sm-8">
 			<div class="card border border-dark h-100">
@@ -52,10 +52,14 @@
 						<div class="card-body">
 							<form class="form-inline" action="javascript:void(0);" method="post">
 								<h2>Create a room!</h2>
-								<p>
-									<input id="room-name-input" type="text" class="form-control" placeholder="Room Name">
-									<button id="create-room-submit" type="submit" class="btn btn-primary">Submit</button>
-								</p>
+								<div class="row w-100">
+									<div class="col-sm-8">
+										<input id="room-name-input" type="text" class="form-control" placeholder="Room Name">
+									</div>
+									<div class="col-sm-4">
+										<button id="create-room-submit" type="submit" class="btn btn-primary">Submit</button>
+									</div>
+								</div>
 							</form>
 						</div>
 					</div>
@@ -65,7 +69,8 @@
 				<div class="col-sm-12">
 					<div class="mh-100 card border border-dark mt-2">
 						<div class="card-body pl-auto pt-2 pb-2">
-							<h2>Online Players:</h2>
+							<h2 class="d-inline">Online:</h2>
+							<button id="change-name" type="submit" class="btn btn-primary d-inline float-right">Change Name</button>
 							<div id="user-list">
 								<!-- Content is directly set with .innerHTML in javascript -->
 							</div>
