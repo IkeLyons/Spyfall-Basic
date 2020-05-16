@@ -54,6 +54,11 @@ io.on('connect', (socket) => {
 			io.emit('update-rooms', rooms);
 		}
 	});
+
+	socket.on('room-join', (roomName) => {
+		rooms[roomName] += 1;
+		io.emit('update-rooms', rooms);
+	})
 });
 
 server.listen(3000, () => {
