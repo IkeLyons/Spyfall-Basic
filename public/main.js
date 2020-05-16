@@ -2,6 +2,12 @@ $(document).ready(function(){
     $("#username-modal").modal('show');
 });
 
+$(document).on('click', '.room-list ul li', function(){
+	var text = $(event.target.querySelector('p:first-child')).text();
+	socket.emit('room-join', text);
+});
+
+
 /* This is called when the room creation submit button is submitted */
 function validation(){
 	var name = document.getElementById("room-name-input").value;
