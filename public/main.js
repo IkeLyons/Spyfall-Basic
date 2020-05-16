@@ -7,21 +7,18 @@ $(document).on('click', '.room-list ul li', function(){
 	socket.emit('room-join', text);
 });
 
-
-/* This is called when the room creation submit button is submitted */
-function validation(){
+$(document).on('click', '#create-room-submit', function(){
 	var name = document.getElementById("room-name-input").value;
 	socket.emit("create-room", name);
 	return name;
-}
+});
 
-/* This funciton is called when the username input button is clicked */
-function buttonClick(){
+$(document).on('click', '#login-submit', function(){
 	var username = document.getElementById("un-text-input").value;
 	socket.emit("new-user", username);
 	$("#username-modal").modal('hide');
 	return username;
-}
+});
 
 
 var socket = io();

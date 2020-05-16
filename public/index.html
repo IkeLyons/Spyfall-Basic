@@ -23,7 +23,7 @@
 				</div>
 
 				<div class="text-center mt-2">
-					<button class="btn btn-primary" onclick="return buttonClick();">Login <i class="fas fa-sign-in ml-1"></i></button>
+					<button id="login-submit" class="btn btn-primary">Login <i class="fas fa-sign-in ml-1"></i></button>
 				</div>
 			</div>
 		</div>
@@ -50,11 +50,11 @@
 				<div class="col-sm-12">
 					<div class="card border border-dark">
 						<div class="card-body">
-							<form class="form-inline" action="javascript:void(0);" method="post" onsubmit="return validation();">
+							<form class="form-inline" action="javascript:void(0);" method="post">
 								<h2>Create a room!</h2>
 								<p>
 									<input id="room-name-input" type="text" class="form-control" placeholder="Room Name">
-									<button type="submit" class="btn btn-primary">Submit</button>
+									<button id="create-room-submit" type="submit" class="btn btn-primary">Submit</button>
 								</p>
 							</form>
 						</div>
