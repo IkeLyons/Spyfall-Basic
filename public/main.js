@@ -20,6 +20,10 @@ $(document).on('click', '#login-submit', function(){
 	return username;
 });
 
+$(document).on('click', '#change-name', function(){
+	$('#username-modal').modal('show');
+});
+
 
 var socket = io();
 

@@ -35,10 +35,16 @@ io.on('connect', (socket) => {
 	});
 
 	socket.on('new-user', (un) => {
+		// TODO: handle when user enters an already taken username
+		if(uid){
+			var index = users.indexOf(uid);
+			users.splice(index, 1);
+			index = usersConnected.indexOf(uid);
+			usersConnected.splice(index, 1);
+		}
 		if(usersConnected.indexOf(un) < 0){ //reconnect always
 			usersConnected.push(un);
 		}
-
 		if(users.indexOf(un) < 0){ //new user only if the person isnt reconnecting
 			users.push(un);
 			io.emit('update-users', users);
